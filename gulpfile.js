@@ -5,6 +5,7 @@ let autoprefixer = require('gulp-autoprefixer');
 let babel = require('gulp-babel');
 let sync = require('browser-sync');
 let plumber = require('gulp-plumber');
+let sourcemaps = require('gulp-sourcemaps');
 
 let reload = sync.reload;
 
@@ -60,10 +61,12 @@ gulp.task('styles', () => {
 
 gulp.task('js', () => {
     return gulp.src(src.js)
+        .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(plumber())
         .pipe(babel({
             presets: ['env']
         }))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(build.js))
         .pipe(reload({stream:true}));
 });

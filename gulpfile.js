@@ -4,23 +4,25 @@ let sass = require('gulp-sass');
 let autoprefixer = require('gulp-autoprefixer');
 let babel = require('gulp-babel');
 let sync = require('browser-sync');
+let plumber = require('gulp-plumber');
+
 let reload = sync.reload;
 
 const src = {
-    index: "src/*.html",
-    styles: "src/styles/*.scss",
-    js: "src/js/*.js"
+    index: 'src/*.html',
+    styles: 'src/styles/*.scss',
+    js: 'src/js/*.js'
 };
 
 const build = {
-    index: "build/",
-    styles: "build/styles/",
-    js: "build/js/"
+    index: 'build/',
+    styles: 'build/styles/',
+    js: 'build/js/'
 };
 
 const vendor = {
-    angular: "src/vendor/angular/angular.min.js",
-    jq: "src/vendor/jquery/dist/jquery.min.js"
+    angular: 'src/vendor/angular/angular.min.js',
+    jq: 'src/vendor/jquery/dist/jquery.min.js'
 };
 
 gulp.task('start', () => {
@@ -29,7 +31,7 @@ gulp.task('start', () => {
 
     sync({
         server: {
-            baseDir: "build/"
+            baseDir: 'build/'
         },
         port: 7080,
         open: true,
@@ -44,19 +46,21 @@ gulp.task('index', () => {
 
 gulp.task('styles', () => {
     return gulp.src(src.styles)
+        .pipe(plumber())
         .pipe(autoprefixer({
             browsers: 'last 2 versions',
             cascade: false
         }))
         .pipe(sass({
-            outputStyle: "compressed"
-        }).on("error", sass.logError))
+            outputStyle: 'compressed'
+        }).on('error', sass.logError))
         .pipe(gulp.dest(build.styles))
         .pipe(reload({stream:true}));
 });
 
 gulp.task('js', () => {
     return gulp.src(src.js)
+        .pipe(plumber())
         .pipe(babel({
             presets: ['env']
         }))

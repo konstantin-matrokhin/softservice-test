@@ -1,0 +1,46 @@
+<!doctype html>
+<!--suppress HtmlUnknownTarget -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div ng-app="">
+        <div class="wrapper">
+            <div class="app">
+                <div class="app__header">
+                    Target Indicator Demo
+                </div>
+                <div class="app__body">
+                    <div class="app__window">
+                        <div class="app__control">
+                            <span class="app__reached">Reached: </span>
+                            <div class="bar">
+                                <div class="bar__filled">
+                                    <div class="bar__arrow">
+                                        <span class="bar__money"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="app__indicator">
+                                Target
+                                <hr>
+                                <p class="goal"></p>
+                            </div>
+                        </div>
+                        <div class="app__info">You need <span class="app_remain"></span> more to reach your target.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/task.js"></script>
+</body>
+</html>

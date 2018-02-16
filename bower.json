@@ -10,12 +10,10 @@
   "ignore": [
     "node_modules",
     "bower_components",
-    "test",
-    "tests",
-    "build"
+    "build",
+    "*.lock"
   ],
   "dependencies": {
-    "jquery": "^3.3.1",
-    "angular": "1.6.9"
+    "jquery": "^3.3.1"
   }
 }

@@ -1,6 +1,7 @@
 ## Installation
 ```bash
 git clone https://github.com/kvltkvlt/softservice-test.git
+cd softservice-test
 npm i && bower i
 gulp build
 ```

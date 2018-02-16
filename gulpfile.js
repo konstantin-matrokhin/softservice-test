@@ -78,3 +78,4 @@ gulp.task('watch', () => {
 });
 
 gulp.task('default', ['start', 'styles', 'js', 'index', 'watch']);
+gulp.task('build', ['start', 'styles', 'js', 'index']);

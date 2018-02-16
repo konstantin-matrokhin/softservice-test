@@ -1,5 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=cyrillic');
+@import '_reset.scss';
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  color: gray;
+  background: lightslategray;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 10pt;
 }
 
 .wrapper {
@@ -11,60 +20,124 @@ body {
 }
 
 .app {
-  $h: 200px;
+  $app-height: 200px;
+  $header-width: 30px;
+  $body-width: $app-height - $header-width;
+  $border-radius: 5px;
 
   width: 400px;
-  height: $h;
-
-  $header-width: 30px;
-  $body-width: $h - $header-width;
+  height: $app-height;
 
   &__header {
     background: #0f0f0f;
     color: #fff;
     width: 100%;
     height: $header-width;
+    border: 1px solid transparent;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+    padding: 7px 15px;
   }
 
   &__body {
-    background: #faf2cc;
+    background: lightgray;
     height: $body-width;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
   }
 
   &__window {
     background: #fff;
-    width: 350px;
-    height: 150px;
+    width: 380px;
+    min-height: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    //justify-content: center;
+    justify-content: space-evenly;
+    border-radius: $border-radius;
   }
 
   .bar {
-    width: 100px;
+    max-width: 140px;
+    width: 140px;
     height: 20px;
-    background: #f0f0f0;
+    background: lightgray;
+    padding: 3px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+    &__arrow {
+      width: 5px;
+      height: 15px;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 8px solid black;
+      position: relative;
+      top: 12px;
+      right: -7px;
+      overflow: visible;
+      float: right;
+    }
 
     &__filled {
       max-width: 100%;
       max-height: 100%;
-      background: #000;
+      background: dodgerblue;
       width: 0;
-      height: 10px;
-      margin: 5px;
+      height: 14px;
       transition: width 2s;
+      position: relative;
+    }
+
+    &__money {
+      color: #000;
+      position: absolute;
+      top: 15px;
+      right: -15px;
+    }
+  }
+
+  &__indicator {
+    background: gray;
+    color: #fff;
+    text-align: center;
+    border-radius: $border-radius;
+    padding: 3px;
+    box-shadow: inset 0 0 7px rgba(0,0,0,0.5);
+    margin: 0 14px;
+
+    hr {
+      $color: rgba(0, 0, 0, 0.2);
+      border: none;
+      height: 1px;
+      background: $color;
+      color: $color;
     }
   }
 
   &__control {
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
   }
 
+  &__reached {
+    padding: 25px;
+  }
+
+}
+
+.done {
+  background: #00A910;
+}
+
+.goal {
+  font-size: 13pt;
 }

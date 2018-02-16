@@ -1,4 +1,4 @@
-# Installing
+## Installation
 ```bash
 git clone https://github.com/kvltkvlt/softservice-test.git
 npm i && bower i

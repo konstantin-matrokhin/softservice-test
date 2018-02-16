@@ -22,12 +22,12 @@ const build = {
 };
 
 const vendor = {
-    angular: 'src/vendor/angular/angular.min.js',
+    reset: 'src/vendor/reset-css/_reset.scss',
     jq: 'src/vendor/jquery/dist/jquery.min.js'
 };
 
 gulp.task('start', () => {
-    gulp.src(vendor.angular).pipe(gulp.dest(build.js));
+    gulp.src(vendor.reset).pipe(gulp.dest("src/styles/"));
     gulp.src(vendor.jq).pipe(gulp.dest(build.js));
 
     sync({
@@ -77,5 +77,5 @@ gulp.task('watch', () => {
     gulp.watch(src.js, ['js']);
 });
 
-gulp.task('default', ['start', 'styles', 'js', 'index', 'watch']);
-gulp.task('build', ['start', 'styles', 'js', 'index']);
+gulp.task('default', ['start', 'js', 'index', 'styles', 'watch']);
+gulp.task('build', ['start', 'js', 'index', 'styles']);
